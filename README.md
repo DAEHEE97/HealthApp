@@ -8,5 +8,7 @@
 - 다음 회의 2022-02-15
 
 ## 2022-02-08
-tensorflow.lite / tensorflow.js
+tensorflow.lite 
 - https://www.tensorflow.org/lite/tutorials/pose_classification
+tensorflow.js
+- https://opentutorials.org/module/5243
