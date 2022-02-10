@@ -12,3 +12,7 @@ tensorflow.lite
 - https://www.tensorflow.org/lite/tutorials/pose_classification
 tensorflow.js
 - https://opentutorials.org/module/5243
+
+
+## 2022-02-10
+계획서 작성
