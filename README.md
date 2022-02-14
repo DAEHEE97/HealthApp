@@ -24,4 +24,23 @@ tensorflow.js
 - tensorflow 예제
 
 ## 2022-02-14
-- jo
+
+- HTML (Hyper Text Markup Language )
+- TAG
+- 크롬 개발자 도구를 이용해 실제 웹 사이트 HTML 분석
+- Front-End, Baek-End 
+- Codecademy : https://www.codecademy.com/learn/learn-html
+- 생활코딩 : https://opentutorials.org/course/1
+
+
+- 웹 호스팅(클라우드 서버) 제공 업체 : AWS ( https://aws.amazon.com ), Netlify ( https://www.netlify.com )
+- HTML free template
+- Deploy
+- URL 수정
+
+
+- 검색엔진 원리
+- HTML [metatag] 입력
+- 크롤러
+- robots.txt, sitemap.xml
+- SEO (Serach Engine Optimization)
