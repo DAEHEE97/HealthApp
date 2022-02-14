@@ -22,3 +22,6 @@ tensorflow.js
 
 ## 2022-02-13
 - tensorflow 예제
+
+## 2022-02-14
+- jo
