@@ -44,3 +44,7 @@ tensorflow.js
 - 크롤러
 - robots.txt, sitemap.xml
 - SEO (Serach Engine Optimization)
+
+## 2022-02-15
+- 다음주 수요일 회의
+- JS,HTML,CSS
