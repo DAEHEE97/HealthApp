@@ -52,3 +52,6 @@ tensorflow.js
 ## 2022-02-16
 - 임시메일 인증
 - google
+
+## 2022-02-18
+- Codecademy HTML
