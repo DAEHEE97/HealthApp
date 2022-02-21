@@ -61,3 +61,6 @@ tensorflow.js
 
 ## 2022-02-20
 - jeju
+
+## 2022-02-21
+- jeju
