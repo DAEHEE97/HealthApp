@@ -71,5 +71,6 @@ tensorflow.js
 ## 2022-02-23
 - 계획서(월요일)
 - 필요 기자재 및 개발비 작성
-- VScode 에서 movenet 
+- VScode 에서 movenet localhost 실행
+- teachable machine model Tensorflow.js 내보내기
 
