@@ -74,3 +74,6 @@ tensorflow.js
 - VScode 에서 movenet localhost 실행
 - teachable machine model Tensorflow.js 내보내기
 
+## 2022-02-24
+- JS
+- jQuery
