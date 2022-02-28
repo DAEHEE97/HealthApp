@@ -69,6 +69,8 @@ HTML로 쓴 코드는 정적이기 때문에 문자 그대로 (1+1) 를 출력�
 ## Javascript와 사용자의 상호작용, 이벤트(Event)
 
 - 웹 브라우저에서 일어나는 유용한 사건을 이벤트(Event)라고 합니다.
+- **이벤트를 다루는 속성을 Javascript로 작성** 합니다.
+
 
 Javascript에서는 다음과 같은 코드를 통해서 alert 창을 만들 수 있습니다.
 
@@ -197,6 +199,7 @@ str.indexOf('hi')를 하면 str 안에 있는 hi 라는 문자열을 찾아서 �
 ## 변수와 대입연산자
 
 - 재사용의 편리함, 유지보수의 용이성
+- 변수를 선언할 때 사용하는 키워드 **var**
 
 
 ## 웹 브라우저 제어
@@ -379,4 +382,43 @@ class 선택자를 이용하면 광범위한 효과를 줄 수 있고, id 선택
 
 ```python
 <span id="bye" class="hello">Javascript</span>
+```
+
+## querySelector 
+
+-  Javascript 코드를 통해서, 이벤트가 일어났을 때, 어떤 태그에 스타일이 지정될지 선택하는 작업
+
+- https://developer.mozilla.org/ko/docs/Web/API/Document/querySelector
+
+
+```python
+# Document.querySelector()는 제공한 선택자 또는 선택자 뭉치와 일치하는 문서 내 첫 번째 Element를 반환합니다. 
+# 일치하는 요소가 없으면 null을 반환합니다.
+
+documnet.querySelector("body")
+```
+
+- 페이지 내에서 "body"라는 이름의 태그를 모두 선택하는 것이죠. 
+
+- 만약 js라는 class를 가진 태그를 선택하고 싶다면 따옴표 사이에 ".js"를 쓰면 되고,
+- first라는 id를 가진 태그를 선택하고 싶다면 "#first"라고 쓰면 됩니다. 
+
+
+
+
+```python
+# "body" 태그에 스타일을 적용 
+
+documnet.querySelector("body").style.backgroundColor = 'black';
+```
+
+- body 태그를 모두 고른 뒤, 여기에 스타일을 적용하기 위해서 style이라고 써 주고, 
+
+- 여러 스타일 중에서도 배경색을 지정하기 위해서 backgroundColor라고 써 준 것입니다.
+
+
+
+```python
+# 예를 들어서, 버튼을 클릭할 때 이러한 스타일 변화가 일어나도록 
+<input type="button" value="night" onclick="documnet.querySelector('body').style.backgroundColor = 'black';">
 ```
