@@ -269,7 +269,7 @@ body 태그의 style 속성을 바꾸어 배경 색은 파란색, 글자 색은 
 
 하지만 이렇게 모든 부분을 div나 span 태그로 감싸려고 한다면 이를 쓰기도 힘들고, 수정하기는 더욱 힘들 것입니다. 
 
-이를 위해서 CSS에는 선택자 라는 기능이 존재합니다.
+이를 위해서 CSS에는 **선택자** 라는 기능이 존재합니다.
 
 ### Class
 
@@ -384,22 +384,22 @@ class 선택자를 이용하면 광범위한 효과를 줄 수 있고, id 선택
 <span id="bye" class="hello">Javascript</span>
 ```
 
-## querySelector 
+## querySelector ( )
 
--  Javascript 코드를 통해서, 이벤트가 일어났을 때, 어떤 태그에 스타일이 지정될지 선택하는 작업
-
+- Javascript 코드를 통해서, 이벤트가 일어났을 때, 어떤 태그에 스타일이 지정될지 선택하는 작업 시 태그를 선택해야 합니다.
 - https://developer.mozilla.org/ko/docs/Web/API/Document/querySelector
+
+- Document.querySelector()는 제공한 선택자 또는 선택자 뭉치와 일치하는 문서 내 첫 번째 Element를 반환합니다. 
+- 일치하는 요소가 없으면 null을 반환합니다.
 
 
 ```python
-# Document.querySelector()는 제공한 선택자 또는 선택자 뭉치와 일치하는 문서 내 첫 번째 Element를 반환합니다. 
-# 일치하는 요소가 없으면 null을 반환합니다.
-
 documnet.querySelector("body")
+#documnet.querySelector(".js")
+#documnet.querySelector("#first")
 ```
 
 - 페이지 내에서 "body"라는 이름의 태그를 모두 선택하는 것이죠. 
-
 - 만약 js라는 class를 가진 태그를 선택하고 싶다면 따옴표 사이에 ".js"를 쓰면 되고,
 - first라는 id를 가진 태그를 선택하고 싶다면 "#first"라고 쓰면 됩니다. 
 
@@ -422,3 +422,67 @@ documnet.querySelector("body").style.backgroundColor = 'black';
 # 예를 들어서, 버튼을 클릭할 때 이러한 스타일 변화가 일어나도록 
 <input type="button" value="night" onclick="documnet.querySelector('body').style.backgroundColor = 'black';">
 ```
+
+## 프로그램, 프로그래밍, 프로그래머
+
+프로그램에는 순서라는 의미가 있습니다. 
+
+프로그래밍은 이러한 순서를 만드는 행위를 말하죠. 
+
+프로그래머는 이러한 순서를 만드는 일을 하는 사람을 의미
+
+컴퓨터를 사용할 때에는 다양한 기능을 순서대로 사용하게 됩니다. 그리고 보통은 이러한 기능이 반복적으로 이용합니다.
+
+### HTML과 Javascript의 비교
+
+HTML로 만든 웹페이지는 시간의 순서에 따라 실행되지 않고, 한 번 만들어지면 바뀌지 않습니다. 
+때문에 HTML은 컴퓨터 프로그래밍 언어가 아닙니다.
+
+
+반면에 Javascript는 사용자와 상호작용하고, 이를 위해서 시간에 따라 여러 기능이 실행되어야 하기 때문에 프로그래밍이라는 형태를 띄게 됩니다. 
+
+따라서 Javascript는 컴퓨터 프로그래밍 언어라고 부를 수 있는 것입니다.
+
+그리고 더 나아가서 시간에 따라 코드가 실행되는 것 외에도, 조건에 따라 다른 코드가 실행되도록 하거나, 같은 코드가 반복적으로 실행할 수 있는 방법도 고안하게 된 것입니다.
+
+
+- Javascript 와 달리 HTML은 왜 프로그래밍 언어가 아닌지 스스로에게 설명해봅시다.
+
+## 조건문, boolean
+
+
+```python
+if(true) {
+    document.write('2')
+  }
+else {
+    document.write('3')
+```
+
+## 조건문을 활용한 토글 만들기
+
+
+```python
+<input id="night_day" type="button" value="night">
+
+```
+
+- 현재 페이지에서 querySelector을 사용해서 id가 night_day인 태그를 찾기 위해서 id를 나타내는 #을 붙여줍니다. 
+- 그리고 찾아낸 태그의 value를 알기 위해서 .value를 써 줍니다.
+
+
+```python
+
+if(document.querySelector('#night_day').value === 'night') {
+  document.querySelector('body').style.backgroundColor = 'black';
+  document.querySelector('body').style.color = 'white';
+  document.querySelector('#night_day').value = 'day';
+}
+else {
+  document.querySelector('body').style.backgroundColor = 'white';
+  document.querySelector('body').style.color = 'black';
+  document.querySelector('#night_day').value = 'night';
+}
+```
+
+- 코드가 실행될 때마다 ('#night_day').value를 바꿔주는 코드도 추가하여 초기화 해야 합니다.
