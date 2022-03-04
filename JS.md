@@ -448,6 +448,8 @@ HTML로 만든 웹페이지는 시간의 순서에 따라 실행되지 않고, �
 
 - Javascript 와 달리 HTML은 왜 프로그래밍 언어가 아닌지 스스로에게 설명해봅시다.
 
+# Javascript 제어
+
 ## 조건문, boolean
 
 
@@ -486,3 +488,176 @@ else {
 ```
 
 - 코드가 실행될 때마다 ('#night_day').value를 바꿔주는 코드도 추가하여 초기화 해야 합니다.
+
+## 리팩토링(중복의 제거)
+
+- 리팩토링을 통해 코드의 중복을 제거해 더 간결하고 가독성 높은 코드를 만들 수 있습니다.
+
+### 리팩토링 - this 사용하기
+
+- 자기 자신을 가리키기 위한 this
+
+
+```python
+if(document.querySelector('#night_day').value === 'night') {
+  document.querySelector('body').style.backgroundColor = 'black';
+  document.querySelector('body').style.color = 'white';
+  document.querySelector('#night_day').value = 'day';
+}
+else {
+  document.querySelector('body').style.backgroundColor = 'white';
+  document.querySelector('body').style.color = 'black';
+  document.querySelector('#night_day').value = 'night';
+}
+```
+
+
+```python
+if(this.value === 'night') {
+  document.querySelector('body').style.backgroundColor = 'black';
+  document.querySelector('body').style.color = 'white';
+  this.value = 'day';
+}
+else {
+  document.querySelector('body').style.backgroundColor = 'white';
+  document.querySelector('body').style.color = 'black';
+  this.value = 'night';
+}
+```
+
+### 리팩토링 - 중복 제거하기
+
+- 4번이나 등장 document.querySelector('body') > var 변수 선언 하여 중복 제거
+
+
+```python
+var target = document.querySelector('body');
+
+if(this.value === 'night') {
+  target.style.backgroundColor = 'black';
+  target.style.color = 'white';
+  this.value = 'day';
+}
+else {
+  target.style.backgroundColor = 'white';
+  target.style.color = 'black';
+  this.value = 'night';
+}
+
+```
+
+## 반복문
+
+
+
+
+```python
+# querySelectorAll 이 페이지의 모든 a 태그를 가져옵니다. 
+
+var links = document.querySelectorAll('a');
+
+# 반복문을 이용해서 각각의 a 태그들의 color을 blue로 바꿔주는 것입니다.
+
+var i = 0;
+
+while (i<links.length) {
+  links[i].style.color = 'blue';
+  i=i+1;
+}
+```
+
+
+```python
+document.write('<li>1</li>');
+
+# 0,1,2 
+# 3번 반복
+
+var i = 0;
+while (i < 3) {
+  document.write('<li>2</li>');
+  document.write('<li>3</li>');
+  i = i + 1;
+}
+
+document.write('<li>4</li>');
+```
+
+## 배열 (Array)
+
+
+```python
+# firuts 배열 선언
+var fruits = ["apple", "banana"];
+
+# apple이 출력
+document.write(fruits[0]);
+
+
+```
+
+### 배열의 길이 .length
+
+
+
+
+```python
+document.write(fruits.length);
+```
+
+### 배열에 값 추가하기 push
+
+
+```python
+fruits.push("coconut");
+```
+
+### 배열에 값 제거하기 splice
+
+
+```python
+fruits.splice("apple");
+```
+
+
+```python
+
+var i = 0;
+
+while (i < fruits.length) {
+  document.write('<li>'+fruits[i]+'</li>');
+  i = i + 1;
+}
+```
+
+## 반복문과 배열의 활용
+
+
+```python
+# querySelectorAll 이 페이지에 있는 모든 a 태그를 배열(array) 형태로 alist에 저장
+# 원래 사용하던 querySelector라는 함수는 하나의 태그만 가져옵니다.
+
+var alist = document.querySelectorAll('a');
+
+# 문서 안의 모든 a 태그의 색깔이 powderblue로 바뀌는 것
+
+var i = 0;
+while (i < alist.length) {
+  alist[i].style.color = 'powderblue';
+  i = i + 1;
+}
+```
+
+
+```python
+# 역순 출력 dcba
+
+var coworkers = ['a', 'b', 'c', 'd'];
+var i = coworkers.length - 1;
+
+while(i >= 0) {
+    document.write(coworkers[i]);
+    i = i - 1;
+}
+
+```
