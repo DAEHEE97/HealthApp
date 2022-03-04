@@ -97,3 +97,6 @@ tensorflow.js
 
 ## 2022-03-02
 - JS part2
+
+## 2022-03-04
+- JS part3
