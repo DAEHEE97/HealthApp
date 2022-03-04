@@ -101,3 +101,6 @@ tensorflow.js
 ## 2022-03-04
 - JS part3
 - 캡스턴 개요서 작성
+- ruby,jekyll 설치
+- blog 생성
+- .md post 작성
