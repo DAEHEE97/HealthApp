@@ -104,3 +104,6 @@ tensorflow.js
 - ruby,jekyll 설치
 - blog 생성
 - .md post 작성
+
+## 2022-03-05
+- JS part4
