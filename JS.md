@@ -52,17 +52,23 @@ CSS란 디자인하는 언어입니다.
 
 - Javascript
 
-<body>
-  <script>
+\<body>
+
+  \<script>
+  
     document.write('hello, world!',(1+1));
-  </script>
-</body>
+    
+  \</script>
+  
+\</body>
 
 - HTML
 
-<body>
+\<body>
+
   hello, world! (1+1)
-</body>
+  
+\</body>
 
 HTML로 쓴 코드는 정적이기 때문에 문자 그대로 (1+1) 를 출력하지만, Javascript 코드는 동적으로 이를 계산 (2) 하여 출력
 
@@ -115,7 +121,7 @@ Javascript에서는 다음과 같은 코드를 통해서 alert 창을 만들 수
 
 버튼 위에 마우스를 올리면 경고창이 뜨도록
 
-* <input type="button" value="click" onmouseover="alert('warning')">
+* \<input type="button" value="click" onmouseover="alert('warning')">
 
 ## 콘솔 (Console)
 
@@ -188,13 +194,11 @@ str.indexOf('hi')를 하면 str 안에 있는 hi 라는 문자열을 찾아서 �
 이렇게 많은 명령어들을 다 외울 수는 없습니다. 
 하지만 여러분들은 검색을 통해서 필요한 명령어를 쉽게 알아낼 수 있겠죠.
 
-* "1"+"1"
+* "1"+"1"  
+11
 
->> 11
-
-* 1+1
-
->> 2
+* 1+1  
+2
 
 ## 변수와 대입연산자
 
@@ -206,8 +210,8 @@ str.indexOf('hi')를 하면 str 안에 있는 hi 라는 문자열을 찾아서 �
 
 - 웹사이트의 색깔이 이렇게 바뀌기 위해서는 <body> 태그의 속성이 바뀌어야 한다는 사실입니다.
 
-* <body>
-* <body style="background-color: black; color: white;">
+* \<body>
+* \<body style="background-color: black; color: white;">
 
 원래 웹페이지에서는 첫 줄과 같이 <body> 태그만 존재했습니다. 
     
@@ -225,7 +229,7 @@ css는 디자인을 위한 언어이고, HTML, Javascript와는 완전히 다른
 
 body 태그의 style 속성을 바꾸어 배경 색은 파란색, 글자 색은 회색으로
 
-* <body style="background-color: blue; color: gray;">
+* \<body style="background-color: blue; color: gray;">
 
 ## CSS의 기본 문법
 
@@ -365,7 +369,7 @@ class 선택자를 이용하면 광범위한 효과를 줄 수 있고, id 선택
 - hello : style class
 - bye   : stlye id
 
-<style>
+\<style>
   span {
     color: blue;
   }
@@ -376,7 +380,7 @@ class 선택자를 이용하면 광범위한 효과를 줄 수 있고, id 선택
   #bye {
     font-size: 13px;
   }
-</style>
+\</style>
 
 
 
@@ -451,6 +455,9 @@ HTML로 만든 웹페이지는 시간의 순서에 따라 실행되지 않고, �
 # Javascript 제어
 
 ## 조건문, boolean
+
+- ===
+
 
 
 ```python
@@ -660,4 +667,87 @@ while(i >= 0) {
     i = i - 1;
 }
 
+```
+
+# Javascript 함수
+
+- 같은 코드가 반복될 때, 우리는 반복문 사용 뿐만 아니라 함수를 통해서도 코드를 간결하게 할 수 있습니다.
+
+- \<head> 태그 안에 \<script> 태그를 만들어서 쓸 수 있습니다.
+    
+- function 함수명 (parameter/self)
+
+
+
+
+```python
+<head>
+
+    <script>
+        
+      function nightdayhandler(self) {
+          
+
+      }
+    </script>
+
+<head>
+```
+
+
+```python
+<input id='night_day' type='button' value='night' onclick='nightdayhandler(this);'>
+
+
+```
+
+## 매개변수 (Parameter) 와 인자 (Argument)
+
+- 함수 입력에 해당하는 것을 매개변수 (Parameter)와 인자 (Argument)라고 부르고, 출력에 해당하는 것을 리턴(Return)이라고 부릅니다.
+
+
+```python
+function sum(left, right) # Parameter
+{ 
+  document.write(left + right);
+}
+```
+
+
+```python
+sum(2,3); # Argument
+```
+
+
+```python
+function sum(left, right) {
+  return left + right; # return
+}
+```
+
+## 함수 호출
+
+- *this* 는 그 코드가 포함되어 있는 태그를 가리키는데
+
+- nightdayhandler 함수를 사용할 때 **this를 사용해서 태그를 전달**해주고, nightdayhandler 함수에서는 이를 매개변수로 받아서 사용
+  
+
+
+
+```python
+<script>
+
+  function nightdayhandler(self) {
+      
+        if(self.value === 'night') {  
+            
+  }
+</script>
+```
+
+
+```python
+# 함수 호출
+
+<input id='night_day' type='button' value='night' onclick='nightdayhandler(this);'>
 ```
