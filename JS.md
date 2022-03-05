@@ -88,7 +88,7 @@ Javascript에서는 다음과 같은 코드를 통해서 alert 창을 만들 수
 
 아래 코드처럼요.
 
-* <input type="button" value="hi" onclick="alert('hi')">
+* \<input type="button" value="hi" onclick="alert('hi')">
 
 **Onclick 이벤트**
 
@@ -750,4 +750,241 @@ function sum(left, right) {
 # 함수 호출
 
 <input id='night_day' type='button' value='night' onclick='nightdayhandler(this);'>
+```
+
+# Javascript 객체
+
+
+
+
+## 객체 (object)
+
+- 객체는 함수의 기반 위에서 존재하는 개념입니다. 
+
+- 서로 연관된 함수와 변수가 아주 많아지면 이를 정리하기 위해서 사용하는 것이죠.
+
+
+
+
+```python
+function LinksSetColor(color){
+  var alist = document.querySelectorAll('a');
+  var i = 0;
+  while(i < alist.length) {
+    alist[i].style.color = color;
+    i = i + 1;
+  }
+}
+```
+
+
+```python
+setColor("powderblue");
+```
+
+배경과 글자의 색을 바꾸는 코드도 따로 함수 작성
+
+
+```python
+function BodySetColor(color){
+  document.querySelector('body').style.color = color;
+}
+```
+
+
+```python
+function BodySetBackgroundColor(color){
+  document.querySelector('body').style.backgroundColor = color;
+}
+```
+
+다양한 함수들이 존재하는 상황에서 우리는 객체를 사용하면 됩니다. 
+
+예를 들어 함수의 종류가 아주 많아지게 되면 이 함수들끼리 이름이 중복되지 않도록 만들게 하기 위해서 굉장히 복잡한 이름을 사용해야 하겠죠.
+
+이 때 객체를 사용하면 이 함수들을 비슷한 것들끼리 그룹으로 만들어 묶어줄 수 있습니다. 
+
+마치 여러분의 컴퓨터에서 폴더를 만들어서 정리하는 것과 비슷한 상황입니다. 이렇게 나뉜 함수들은 서로 다른 그룹끼리는 이름이 겹쳐도 괜찮습니다.
+
+
+
+
+```python
+document.querySelector('body');
+```
+
+- document가 바로 객체이고, querySelector가 document라는 객체에 속해 있는 함수라고 생각할 수 있는 것입니다. 
+- 이렇게 객체에 속해 있는 함수들은 메소드(Method)라는 별도의 이름으로 부르게 됩니다.
+
+## 객체 접근
+
+- 우리는 이전에 배열에 대해서 배운 적이 있었습니다. 어떤 값들을 순서를 가지도록 저장하는 구조였습니다.
+
+- 그렇다면 순서 없이 저장하는 구조도 있어야겠죠? 그것이 바로 객체입니다.
+
+- **객체에는 순서가 없는 대신 각각에 이름이 붙어 있습니다. 이름을 이용해서 값들을 꺼내고 넣는 것**이죠.
+
+
+```python
+# 배열
+
+var coworkers = []
+```
+
+
+```python
+# 객체
+
+var coworkers= {
+  "programmer": "egoing",
+  "designer": "leezche"
+};
+```
+
+- 객체를 만들 때에는 배열과는 달리 중괄호를 사용합니다. 
+- *각 요소들은 각각 이름과 값으로 이루어져 있죠.* 
+
+- 예를 들면 egoing이라는 값에는 programmer이라는 이름표가 붙어있는 것입니다.
+
+- 그렇다면 이 요소들을 꺼낼 때에는 어떻게 해야 할까요? 다음과 같이 써주면 됩니다.
+
+
+```python
+## 객체 인덱싱
+```
+
+
+```python
+document.write(coworkers.programmer)
+document.write(coworkers["programmer"])
+```
+
+
+```python
+## 객체 요소 추가
+```
+
+
+```python
+coworkers.bookkeeper = "duru";
+coworkers["bookkeeper"] = "duru";
+```
+
+## 객체의 순회 ( iteration ) 
+
+- 객체에 있는 모든 값들을 가져오는 방법
+- for (var key in Object)
+
+
+- 객체의 메소드 안에서 객체 자신을 가리키는 키워드 this
+
+
+```python
+# object {} 선언
+
+var coworkers = {
+  "programmer": "egoing",
+  "designer": "leezche"
+};
+
+```
+
+
+```python
+# key 출력
+
+for(var key in coworkers) {
+  document.write(key+'<br>');
+}
+```
+
+
+```python
+# value 출력 object[key]
+
+for(var key in coworkers) {
+  document.write(coworkers[key]+'<br>');
+}
+```
+
+## 객체의 메소드 (method)
+
+- 객체에 새로운 함수, 즉 메소드를 추가할 수 있습니다.
+- showAll()
+
+
+
+```python
+# coworkers 객체, showAll method 추가 
+# coworkers에서만 사용할 수 있음
+
+coworkers.showAll = function() {
+  for (var key in coworkers) {
+    document.write(key + ' : ' + coworkers[key] + '<br>');
+  }
+}
+```
+
+- cowerkers라는 변수 이름이 바뀌면 함수를 수정해야 하기 때문이죠. 
+
+- 이 때 사용하는 것이 바로 this입니다. 
+
+- **coworkers 대신에 이 메소드가 쓰인 객체를 가리키는 this를 사용** 해주면 됩니다. 
+
+
+
+
+```python
+coworkers.showAll = function() {
+  for (var key in this) {
+    document.write(key + ' : ' + this[key] + '<br>');
+  }
+}
+```
+
+## 객체의 프로퍼티 ( property )
+
+- 객체에 해당하는 변수들 예를 들면 coworkers.programmer에서 programmer에 해당하는 것들입니다. 
+- 이런 변수들은 프로퍼티(property)라고 부릅니다. (key)
+
+
+## 객체 활용
+
+
+```python
+# Body 객체
+
+var Body = {
+  setColor: function (color) {
+    document.querySelector('body').style.color = color;
+  },
+  setBackgroundColor: function (color) {
+    document.querySelector('body').style.backgroundColor = color;
+  }
+}
+```
+
+
+```python
+# Links 객체
+
+var Links = {
+  setColor: function (color) {
+    var alist = document.querySelectorAll('a');
+    var i = 0;
+    while (i < alist.length) {
+      alist[i].style.color = color;
+      i = i + 1;
+    }
+  }
+}
+```
+
+- Body와 Links에 모두 setColor이라는 함수가 존재하게 됩니다. 
+- 하지만 이 둘을 사용할 때에는 다음과 같이 다르게 사용하게 됩니다.
+
+
+```python
+Body.setColor('black');
+Links.setColor('powderblue');
 ```
