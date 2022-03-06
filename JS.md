@@ -29,7 +29,6 @@ CSS란 디자인하는 언어입니다.
 
 이렇게 부여된 속성값은 아까 살펴봤듯이 body 태그의 style 속성으로 들어갑니다. 
 
-이 style 속성은 CSS입니다.
 
 ## script 태그
 
@@ -86,7 +85,6 @@ Javascript에서는 다음과 같은 코드를 통해서 alert 창을 만들 수
 
 먼저 빈 화면에 버튼을 만들고, 이 버튼을 눌렀을 때 어떤 동작이 실행되도록 하는지 지정하는 속성인 onclick에 이 javascript 코드를 넣어봅시다. 
 
-아래 코드처럼요.
 
 * \<input type="button" value="hi" onclick="alert('hi')">
 
@@ -95,7 +93,7 @@ Javascript에서는 다음과 같은 코드를 통해서 alert 창을 만들 수
 - HTML 태그 안에서 onclick 속성은 javascript 코드를 가지게 됩니다. 
 
 
-- 그리고 onclick이 포함된 태그가 클릭되었을 때 이 javascript 코드에 따라서 웹 브라우저가 동작됩니다. 
+- *onclick이 포함된 태그가 클릭되었을 때 이 javascript 코드에 따라서 웹 브라우저가 동작됩니다.* 
 
 
 - 즉, 위의 코드에서 웹 브라우저는 alert('hi') 라는 코드를 기억하고 있다가, 사용자가 클릭하면 이를 실행해주는 것입니다.
@@ -213,40 +211,45 @@ str.indexOf('hi')를 하면 str 안에 있는 hi 라는 문자열을 찾아서 �
 * \<body>
 * \<body style="background-color: black; color: white;">
 
-원래 웹페이지에서는 첫 줄과 같이 <body> 태그만 존재했습니다. 
+원래 웹페이지에서는 첫 줄과 같이 \<body> 태그만 존재했습니다. 
     
-하지만 *원래의 <body> 태그에서 두 번째 줄과 같이 style을 지정해주면, 배경색은 검정색으로, 글자 색은 하얀색으로 바뀌게 됩니다.* 
+하지만 *원래의 \<body> 태그에서 두 번째 줄과 같이 style을 지정해주면, 배경색은 검정색으로, 글자 색은 하얀색으로 바뀌게 됩니다.* 
     
 이 때 **style 속성에 들어있는 간단한 코드를 css**라고 부릅니다. 
  
 css는 디자인을 위한 언어이고, HTML, Javascript와는 완전히 다른 언어입니다.
 
 - 하지만 HTML은 한 번 표시되면 바뀌지 않는 정적인 언어입니다. 
-- 즉 *<body> 태그가 만들어지면, 저 style 속성 값을 바꿀 수 없다는 이야기*입니다. 
-- 지금부터 우리가 만들고자 하는 **웹페이지는 Javascript를 이용해 이 문제를 해결**할 겁니다.
+
+- 즉 *\<body> 태그가 만들어지면, 저 style 속성 값을 바꿀 수 없다는 이야기* 입니다. 
 
 
 
-body 태그의 style 속성을 바꾸어 배경 색은 파란색, 글자 색은 회색으로
+- **동적인 웹페이지를 위해 Javascript를 이용해 이 문제를 해결**할 겁니다.
 
-* \<body style="background-color: blue; color: gray;">
+
+
+ex) body 태그의 style 속성을 바꾸어 배경 색은 파란색, 글자 색은 회색으로
+
+
+```python
+<body style="background-color: blue; color: gray;">
+```
 
 ## CSS의 기본 문법
 
 - CSS를 이용하면 웹페이지에 있는 요소들의 디자인을 바꿀 수 있습니다.
 
+이를 위해서는 *바꾸고 싶은 태그에 style 속성을 사용* 하면 됩니다. 
 
-이를 위해서는 *바꾸고 싶은 태그에 style 속성을 사용*하면 됩니다. 
 이 style 속성 안에는 CSS가 들어가게 됩니다.
 
-
-```python
-<h1>Javascript<h1>
 ```
+<h1> Javascript <h1>
 
+>
 
-```python
-<h1 style="color: blue">Javascript<h1>
+<h1 style="color: blue"> Javascript <h1>
 ```
 
 ## CSS기초 (style 태그)
@@ -259,17 +262,22 @@ body 태그의 style 속성을 바꾸어 배경 색은 파란색, 글자 색은 
 
 ### Span, Div
 
+- 우리가 CSS를 이용해서 *문단의 특정 부분에만 스타일을 주어서 강조*를 하고 싶다고 해 봅시다. 
 
-우리가 CSS를 이용해서 *문단의 특정 부분에만 스타일을 주어서 강조*를 하고 싶다고 해 봅시다. 이 때 이 부분을 감싸줄 수 있는 HTML 태그가 필요하겠죠.
+- 이 때 이 부분을 감싸줄 수 있는 HTML 태그가 필요하겠죠.
 
-이를 위해서 우리는 div와 span이라는 HTML 태그를 사용합니다. 
+- div와 span이라는 HTML 태그를 사용합니다. 
 
-둘 모두 어떠한 특정한 기능이 있는 태그가 아니고, **CSS나 Javascript 코드를 삽입하기 위해서 존재하는 태그**입니다. 
-
-**div 태그는 화면 전체를 사용하기 때문에 줄바꿈이 되고, span은 줄바꿈이 되지 않습니다.**
+- 둘 모두 어떠한 특정한 기능이 있는 태그가 아니고, **CSS나 Javascript 코드를 삽입하기 위해서 존재하는 태그**입니다. 
 
 
-이제 이러한 div와 span 태그 안에 style 속성을 부여하면 이 태그로 감싸진 부분에만 디자인이 적용되게 됩니다.
+
+- **div 태그는 화면 전체를 사용하기 때문에 줄바꿈이 되고, span은 줄바꿈이 되지 않습니다.**
+
+
+- **div와 span 태그 안에 style 속성을 부여하면 이 태그로 감싸진 부분에만 디자인이 적용되게 됩니다.**
+
+
 
 하지만 이렇게 모든 부분을 div나 span 태그로 감싸려고 한다면 이를 쓰기도 힘들고, 수정하기는 더욱 힘들 것입니다. 
 
@@ -282,7 +290,9 @@ body 태그의 style 속성을 바꾸어 배경 색은 파란색, 글자 색은 
 # <head> 태그 안에 <style>이라는 새로운 태그를 만들어 줍니다.
 # <style> 태그 안에는 CSS 코드
 # "js" class 생성
+```
 
+```
 <head>
   <style>
     .js{
@@ -296,8 +306,10 @@ body 태그의 style 속성을 바꾸어 배경 색은 파란색, 글자 색은 
 ```python
 # HTML 코드의 곳곳에 "js"class 적용시키면 됩니다. 
 # 예를 들어 어떤 문장에서 Javascript라는 단어에만 이 class를 적용시켜서 볼드체로 만들고 싶다면 다음과 같이 쓰면 됩니다.
+```
 
-<span class="js">Javascript</span> is wonderful!
+```
+<span class="js"> Javascript </span> is wonderful!
 
 ```
 
@@ -307,37 +319,44 @@ body 태그의 style 속성을 바꾸어 배경 색은 파란색, 글자 색은 
 
 - 하나의 class로 지정되어 있는 여러 부분 중 딱 한 부분에만 또 다른 스타일을 적용하고 싶다면 어떻게 하면 좋을까요?
 
-선택자 class 외에도 id가 존재합니다. 
+- 선택자 class 외에도 id가 존재합니다. 
 
-id는 class와는 달리 .대신 **#을 붙여야 한다**는 차이점이 있습니다. 
+- id는 class와는 달리 .대신 **#을 붙여야 한다**는 차이점이 있습니다. 
 
 
 
--  first라는 id 생성 
+```python
+# <style> 태그 안에는 CSS 코드
+# "first" id 생성
+```
 
+```
 <style>
   #first {
     color: green;
   }
-</style>
+</style>`
+```
 
 ### Class와 Id의 차이점
-
-그렇다면 만약 class와 id가 모두 지정되어 있는 태그에서는, 둘 중에 어떤 디자인을 따라가게 될까요? 이를 위해서 class와 id의 차이점을 알아봅시다.
 
 class라는 단어는 그룹을 의미하고, id는 특정한 것을 식별한다는 의미입니다. 
 
 class 선택자는 같은 스타일이 지정될 그룹을 의미하는 것이고, id는 특정한 태그에만 지정하고 싶은 스타일을 나타내는 것입니다. 
 
-**그래서 class는 중복될 수 있지만, id는 한 페이지에서는 딱 한번만 쓰이게 되는 것**입니다.
+
+
+
+
+**class는 중복될 수 있지만, id는 한 페이지에서는 딱 한번만 쓰이게 되는 것**입니다.
 
 즉, class 선택자가 id 선택자에 비해서 더 포괄적입니다. 
 
 class 선택자를 이용하면 광범위한 효과를 줄 수 있고, id 선택자를 이용하면 예외적으로 디자인을 바꿀 수 있는 것이죠. 
 
-그렇기 때문에 **class 위에 id를 얹어서 구현하는 것이 효율적**입니다.
+따라서 **class 위에 id를 얹어서 구현하는 것이 효율적**입니다.
 
-### 선택자의 우선순위
+### style tag 
 
 마지막으로 id 선택자와 class 선택자 외에 스타일을 나타내는 한 가지 방법을 더 알아봅시다. 
 
@@ -345,31 +364,25 @@ class 선택자를 이용하면 광범위한 효과를 줄 수 있고, id 선택
 
 즉 아래와 같은 코드를 사용하면 이 페이지에서 span이라는 이름의 태그는 모두 디자인이 바뀌는 것이죠.
 
+- .과 # 모두 지정하지 않고 
+- style tag('span') 생성
 
-```python
-# .과 # 모두 지정하지 않고 
-# style tag('span') 생성
-
+~~~
 <style>
   span {
     color: blue;
   }
 </style>
+~~~
 
+```
+<span> Javascript </span>
 ```
 
 
-```python
-<span id="first" class="js">Javascript</span>
 ```
+<style>
 
-- id > class > 태그 순서로 우선순위
-
-- span  : style tag
-- hello : style class
-- bye   : stlye id
-
-\<style>
   span {
     color: blue;
   }
@@ -380,13 +393,18 @@ class 선택자를 이용하면 광범위한 효과를 줄 수 있고, id 선택
   #bye {
     font-size: 13px;
   }
-\</style>
+
+</style>
+```
 
 
-
-```python
+```
 <span id="bye" class="hello">Javascript</span>
 ```
+
+- span  : style tag
+- hello : style class
+- bye   : stlye id
 
 ## querySelector ( )
 
@@ -408,8 +426,6 @@ documnet.querySelector("body")
 - first라는 id를 가진 태그를 선택하고 싶다면 "#first"라고 쓰면 됩니다. 
 
 
-
-
 ```python
 # "body" 태그에 스타일을 적용 
 
@@ -424,6 +440,7 @@ documnet.querySelector("body").style.backgroundColor = 'black';
 
 ```python
 # 예를 들어서, 버튼을 클릭할 때 이러한 스타일 변화가 일어나도록 
+
 <input type="button" value="night" onclick="documnet.querySelector('body').style.backgroundColor = 'black';">
 ```
 
@@ -435,7 +452,9 @@ documnet.querySelector("body").style.backgroundColor = 'black';
 
 프로그래머는 이러한 순서를 만드는 일을 하는 사람을 의미
 
-컴퓨터를 사용할 때에는 다양한 기능을 순서대로 사용하게 됩니다. 그리고 보통은 이러한 기능이 반복적으로 이용합니다.
+컴퓨터를 사용할 때에는 다양한 기능을 순서대로 사용하게 됩니다. 
+
+그리고 보통은 이러한 기능이 반복적으로 이용합니다.
 
 ### HTML과 Javascript의 비교
 
@@ -458,43 +477,48 @@ HTML로 만든 웹페이지는 시간의 순서에 따라 실행되지 않고, �
 
 - ===
 
-
-
-```python
+```
 if(true) {
     document.write('2')
   }
 else {
-    document.write('3')
+    document.write('3')`
+
 ```
 
 ## 조건문을 활용한 토글 만들기
 
+- 버튼 생성
 
-```python
+```
 <input id="night_day" type="button" value="night">
 
 ```
 
 - 현재 페이지에서 querySelector을 사용해서 id가 night_day인 태그를 찾기 위해서 id를 나타내는 #을 붙여줍니다. 
 - 그리고 찾아낸 태그의 value를 알기 위해서 .value를 써 줍니다.
+- 코드가 실행될 때마다 ('#night_day').value를 바꿔주는 코드도 추가하여 초기화 해야 합니다.
 
 
-```python
+- 버튼생성 후 onclick 시 이벤트 발생
 
-if(document.querySelector('#night_day').value === 'night') {
-  document.querySelector('body').style.backgroundColor = 'black';
-  document.querySelector('body').style.color = 'white';
-  document.querySelector('#night_day').value = 'day';
-}
-else {
-  document.querySelector('body').style.backgroundColor = 'white';
-  document.querySelector('body').style.color = 'black';
-  document.querySelector('#night_day').value = 'night';
-}
 ```
 
-- 코드가 실행될 때마다 ('#night_day').value를 바꿔주는 코드도 추가하여 초기화 해야 합니다.
+<input id="night_day" type="button" value="night" onclick = "
+
+    if(document.querySelector('#night_day').value === 'night') {
+      document.querySelector('body').style.backgroundColor = 'black';
+      document.querySelector('body').style.color = 'white';
+      document.querySelector('#night_day').value = 'day';
+    }
+    else {
+      document.querySelector('body').style.backgroundColor = 'white';
+      document.querySelector('body').style.color = 'black';
+      document.querySelector('#night_day').value = 'night';
+    }
+
+">
+```
 
 ## 리팩토링(중복의 제거)
 
@@ -504,53 +528,50 @@ else {
 
 - 자기 자신을 가리키기 위한 this
 
+- input id 로 가져온 자기자신 태그를 가리키기 위한 this 
+- document.querySelector('#night_day') > this 
 
-```python
-if(document.querySelector('#night_day').value === 'night') {
-  document.querySelector('body').style.backgroundColor = 'black';
-  document.querySelector('body').style.color = 'white';
-  document.querySelector('#night_day').value = 'day';
-}
-else {
-  document.querySelector('body').style.backgroundColor = 'white';
-  document.querySelector('body').style.color = 'black';
-  document.querySelector('#night_day').value = 'night';
-}
 ```
 
+<input id="night_day" type="button" value="night" onclick = "
 
-```python
-if(this.value === 'night') {
-  document.querySelector('body').style.backgroundColor = 'black';
-  document.querySelector('body').style.color = 'white';
-  this.value = 'day';
-}
-else {
-  document.querySelector('body').style.backgroundColor = 'white';
-  document.querySelector('body').style.color = 'black';
-  this.value = 'night';
-}
+    if(this.value === 'night') {
+      document.querySelector('body').style.backgroundColor = 'black';
+      document.querySelector('body').style.color = 'white';
+      this.value = 'day';
+    }
+    else {
+      document.querySelector('body').style.backgroundColor = 'white';
+      document.querySelector('body').style.color = 'black';
+      this.value = 'night';
+    }
+
+">
 ```
 
-### 리팩토링 - 중복 제거하기
+### 리팩토링 - 변수 사용 
 
-- 4번이나 등장 document.querySelector('body') > var 변수 선언 하여 중복 제거
+- document.querySelector('body') > var 변수 선언 하여 중복 제거
 
 
-```python
-var target = document.querySelector('body');
+```
+<input id="night_day" type="button" value="night" onclick = "
 
-if(this.value === 'night') {
-  target.style.backgroundColor = 'black';
-  target.style.color = 'white';
-  this.value = 'day';
-}
-else {
-  target.style.backgroundColor = 'white';
-  target.style.color = 'black';
-  this.value = 'night';
-}
+    var target = document.querySelector('body');
 
+
+    if(this.value === 'night') {
+      target.style.backgroundColor = 'black';
+      target.style.color = 'white';
+      this.value = 'day';
+    }
+    else {
+      target.style.backgroundColor = 'white';
+      target.style.color = 'black';
+      this.value = 'night';
+    }
+
+">
 ```
 
 ## 반복문
@@ -950,10 +971,9 @@ coworkers.showAll = function() {
 
 ## 객체 활용
 
+- Body 객체
 
-```python
-# Body 객체
-
+```
 var Body = {
   setColor: function (color) {
     document.querySelector('body').style.color = color;
@@ -961,13 +981,12 @@ var Body = {
   setBackgroundColor: function (color) {
     document.querySelector('body').style.backgroundColor = color;
   }
-}
+`
 ```
 
+- Links 객체
 
-```python
-# Links 객체
-
+```
 var Links = {
   setColor: function (color) {
     var alist = document.querySelectorAll('a');
@@ -976,15 +995,159 @@ var Links = {
       alist[i].style.color = color;
       i = i + 1;
     }
-  }
-}
+  
 ```
+
 
 - Body와 Links에 모두 setColor이라는 함수가 존재하게 됩니다. 
 - 하지만 이 둘을 사용할 때에는 다음과 같이 다르게 사용하게 됩니다.
 
-
-```python
-Body.setColor('black');
-Links.setColor('powderblue');
 ```
+Body.setColor('black');
+Links.setColor('powderblue')`
+```
+
+# Javascript 활용
+
+
+##  파일을 이용해 코드 정리하기
+
+복사 붙혀놓기로 수정하기 힘든 상황에서 파일로 쪼개는 것입니다.
+
+새로운 js 파일을 만들어 봅시다. 
+
+예를 들어서 colors.js라는 파일 이름으로 만들었다고 해 봅시다. 
+
+그리고 그 파일에 모든 페이지에서 공통적으로 사용되는 Javascript 코드를 넣습니다.
+
+그렇다면 원래 Javascript 코드가 있었던 \<script> 태그는 어떻게 바꾸면 될까요? 
+다음과 같이 **src 속성에 이 파일 이름을 넣어서 바꾸면 됩니다.**
+
+```
+<script src='colors.js'>  </script>
+
+```
+
+## 파일 이용의 장점
+
+이제 이 짧은 script 코드를 필요한 페이지에 붙여 넣으면 이 Javascript 코드를 한 번에 관리할 수 있는 것입니다. 
+
+즉, 코드를 재사용할 수 있고, 동시에 코드를 수정할 수 있어서 유지보수가 편리해집니다. 
+
+코드가 명확해지고 가독성이 좋아진다는 장점도 있습니다.
+
+이렇게 파일을 분리하면 캐시의 입장에서도 장점을 가집니다. 
+
+colors.js라는 파일을 한 번 다운로드해서 캐시에 저장해두면 다운로드 없이 사용할 수 있기 때문에 더 빨리 페이지를 표시할 수 있는 것입니다.
+
+## 소프트웨어의 사회성
+
+다른 사람들의 소프트웨어를 가져와서 사용할 수 있는 방법에 대해서 알아봅시다.
+
+
+이렇게 다른 사람과 코드를 통해서 협력하는 모델에는 두 가지가 있습니다.
+
+
+- 라이브러리는 프로그램에 필요한 부품이 되는 소프트웨어가 정리되어 있는 것입니다. 
+
+
+- 프레임워크는 만들고자 하는 프로그램의 종류에 따라서 공통적인 부분을 미리 만들어놓는 것입니다. 
+
+
+필요한 부분만 약간 수정해서 사용할 수 있는 것이죠. 
+
+
+즉, 라이브러리는 우리가 필요한 부분을 가져와서 사용하는 것이라면, 프레임워크는 직접 프레임워크 안으로 들어가서 디테일을 수정해서 사용하는 것이라고 생각하시면 됩니다.
+
+
+
+## jQuery 라이브러리
+
+가장 유명한 Javascript 라이브러리 중 하나는 jQuery입니다. 
+
+이 라이브러리를 사용하면 생산성을 높일 수 있습니다. 
+
+
+인터넷에서 jQuery를 다운로드하는 방법도 있고, CDN이라는 방법을 사용해도 됩니다. 
+
+- CDN을 사용하면 코드를 한 줄 추가하는 것만으로도 라이브러리를 가져와서 사용할 수 있습니다. 
+- 예를 들어 jQuery의 구글 CDN은 다음과 같습니다. (jQuery 홈페이지에서 찾을 수 있습니다.)
+
+
+- 이 한 줄을 \<head>에 추가하면 된다는 것이죠.
+
+
+    
+```
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+```
+
+
+    
+
+
+jQuery를 사용하면 반복문을 사용하지 않고도 모든 태그를 한 번에 처리할 수 있습니다. 
+
+```
+$('a').css("color","powderblue");
+
+```
+
+
+예를 들어서 다음과 같이 사용할 수 있습니다.
+
+반복문을 사용하지 않고 이 한 줄만으로 모든 a 태그의 색깔을 powderblue로 바꿀 수 있는 것입니다.
+
+
+하지만 jQuery는 새로운 언어가 아닙니다. 
+
+우리가 직접 함수를 만드는 대신 이러한 일을 하는 함수가 jQuery 안에 미리 만들어져 있는 것이죠.
+
+이렇게 적절한 라이브러리를 잘 사용하면 효율적으로 코딩을 할 수 있게 됩니다.
+
+
+## UI ( User Interface )와 API ( Application Programming Interface )
+
+
+예를 들어서 어떤 페이지에 버튼이 하나 있고, 이 버튼을 누르면 경고창이 뜨게 만들었다고 해 봅시다. 
+이 버튼을 사용하는 것은 웹페이지의 사용자죠. 
+
+**사용자들이 시스템을 제어하기 위해서 조작하는 장치를 UI**라고 부릅니다.
+
+
+
+이제 코드를 봅시다. 
+
+이 경고창은 우리가 만든 것일까요? 
+
+경고창의 텍스트나, 경고창이 뜨는 타이밍은 우리가 만든 것이지만, 우리는 경고창을 실제로 띄우기 위해서는 alert라는 함수를 사용했죠. 
+
+
+alert라는 이 함수는 웹브라우저를 만든 사람들이 미리 만들어둔 것입니다. 
+
+그리고 우리는 이 alert라는 함수를 호출해서 조작하는 것이죠. 
+
+이렇게 **프로그래머들이 사용하는 조작 장치들을 API**라고 부릅니다. 
+
+즉, alert는 API인 것이죠.
+
+
+
+이러한 UI와 API라는 개념은 Javascript 뿐만 아니라 모든 프로그래밍 언어에 적용되는 개념입니다. 
+
+우리는 **API를 응용하고 결합해서 새로운 프로그램을 만들 수 있는 것**입니다.
+
+## 웹 개발과 관련된 검색
+
+먼저 태그를 삭제하거나 자식 태그를 추가하고 싶은 경우에는 document라는 객체를 살펴보세요. 그래도 찾을 수 없다면 DOM 객체에 대해서도 살펴보세요.
+
+만일 웹브라우저 자체를 제어해야 하는 경우, 예를 들면 웹페이지의 주소를 알아낸다거나, 창을 열거나 해야 하는 경우에는 windows 객체의 프로퍼티나 메소드를 찾아보세요.
+
+웹페이지를 새로고침하지 않고도 정보를 변경하고 싶다면 ajax를 사용해보세요. 반대로 웹페이지가 새로고침되어도 현재 상태를 유지하도록 만들고 싶으면 cookie에 대해서 배워보세요.
+
+인터넷이 끊겨도 동작하는 웹페이지를 위해서는 offline web application을 찾아보세요. 
+
+화상 통신 웹 앱을 만들고 싶을 때에는 webRTC를 찾아보면 됩니다. 음성을 인식하거나 음성과 관련된 것을 처리하고 싶을 때에는 speech로 시작되는 API들을 살펴보세요.
+
+3차원 그래픽을 이용하고 싶다면 webGL, 가상현실에 대해서 알아보고 싶다면 webVR에 대해서 찾아보시면 됩니다.
