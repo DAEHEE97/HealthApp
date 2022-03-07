@@ -110,3 +110,6 @@ tensorflow.js
 
 ## 2022-03-06
 - JS part5
+
+## 2022-03-07
+- JS part6
