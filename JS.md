@@ -1151,3 +1151,157 @@ alert라는 이 함수는 웹브라우저를 만든 사람들이 미리 만들�
 화상 통신 웹 앱을 만들고 싶을 때에는 webRTC를 찾아보면 됩니다. 음성을 인식하거나 음성과 관련된 것을 처리하고 싶을 때에는 speech로 시작되는 API들을 살펴보세요.
 
 3차원 그래픽을 이용하고 싶다면 webGL, 가상현실에 대해서 알아보고 싶다면 webVR에 대해서 찾아보시면 됩니다.
+
+# Javascript 객체 기본
+
+##  배열에서의 반복문
+
+가장 기본적인 while 문을 사용해보겠습니다. 
+
+i의 값은 0부터 memberArray의 길이보다 1작은 값까지 증가하기 때문에, 우리는 memberArray에 있는 값을 하나 하나 꺼내올 수 있게 됩니다. 
+
+- _console.group_ 을 사용하면 결과값을 더 보기 좋게 정리할 수 있습니다. 
+
+```
+var memberArray = ['egoing','graphittie','leezche'];
+
+console.group('array loop');
+
+var i = 0;
+while(i<memberArray.length){
+    console.log(i, memberArray[i]);
+    i = i + 1;
+}
+
+console.groupEnd('array loop');
+```
+
+## 객체에서의 반복문
+
+배열에서 사용하는 for문과는 문법이 조금 다른 for-in 문을 사용해보겠습니다.
+
+```
+
+console.group('object loop');
+
+
+var memberObject = {
+    manager: 'egoing',
+    developer:'grphittie',
+    designer: 'leezche'
+}
+
+
+// (현재 원소의 이름이 들어갈 변수) in (객체)
+
+
+for(var name in memberObject ){ 
+
+    //객체에 있는 원소의 개수만큼 중괄호가 실행됩니다. 
+    
+    console.log(name);                       // property(key) 출력 
+    console.log(name, memberObject[name]);   // property(key), value 출력
+
+
+}
+
+
+console.groupEnd('object loop');
+
+```
+
+##  자바스크립트 내장 객체 math
+
+- 표준 내장 객체
+- https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects
+
+자바스크립트는 미리 정의된 여러가지 기능을 제공합니다.
+
+날짜와 관련된 기능, 수학과 관련된 기능 등 여러가지 기능들이 존재합니다. 
+
+이러한 기능들을 잘 정돈하기 위해서 자바스크립트 개발자들은 객체를 이용하기로 했습니다.
+
+예를 들어 Math라는 객체에는 수학과 관련된 여러 함수들이 그룹화되어 있습니다.
+
+
+
+
+
+
+```python
+console.log("Math.PI", Math.PI); // 파이 값을 출력합니다.
+console.log("Math.random()", Math.random()); // 랜덤 값을 출력합니다.
+console.log("Math.floor(3.9)", Math.floor(3.9)); // 값을 반올림합니다.
+```
+
+## 객체 생성
+
+
+- 객체 안에 포함된 함수 : method
+- 객체를 사용하면 관련된 기능을 그룹화하여 편리하게 사용할 수 있습니다.
+
+
+```python
+var MyMath = {
+    
+    PI: Math.PI,
+    
+    random:function(){
+        return Math.random();
+    },
+    
+    floor:function(val){
+        return Math.floor(val);
+    }
+    
+}
+```
+
+
+```python
+var MyMath_PI = Math.PI;
+
+function MyMath_random(){
+    return Math.random();
+}
+function MyMath_floor(val){
+    return Math.floor(val);
+}
+```
+
+## this
+
+- 어떤 메소드에서 그 메소드가 속해 있는 객체를 가리키는 특수한 키워드
+
+
+```python
+var kim = {
+    name: 'kim',
+    first: 10, //첫번째 게임 점수
+    second: 20,  // 두번째 게임 점수 
+    sum:function(f,s){ // 게임 접수 합계 함수
+        return f+s;
+    }
+}
+
+console.log("kim.sum(kim.first,kim.second)",kim.sum(kim.first,kim.second));
+
+
+```
+
+
+```python
+var kim = {
+    
+    name: 'kim',
+    first: 10, //첫번째 게임 점수
+    second: 20,  // 두번째 게임 점수 
+    sum:function(){ // 게임 접수 합계 함수
+        return this.first+this.second;
+    }
+}
+
+
+console.log("kim.sum()",kim.sum());
+
+```
