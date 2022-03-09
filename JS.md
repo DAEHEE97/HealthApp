@@ -1160,7 +1160,7 @@ alert라는 이 함수는 웹브라우저를 만든 사람들이 미리 만들�
 
 i의 값은 0부터 memberArray의 길이보다 1작은 값까지 증가하기 때문에, 우리는 memberArray에 있는 값을 하나 하나 꺼내올 수 있게 됩니다. 
 
-- _console.group_ 을 사용하면 결과값을 더 보기 좋게 정리할 수 있습니다. 
+- __console.group__ 을 사용하면 결과값을 더 보기 좋게 정리할 수 있습니다. 
 
 ```
 var memberArray = ['egoing','graphittie','leezche'];
@@ -1178,7 +1178,11 @@ console.groupEnd('array loop');
 
 ## 객체에서의 반복문
 
-배열에서 사용하는 for문과는 문법이 조금 다른 for-in 문을 사용해보겠습니다.
+- for-in 문
+- for (현재 원소의 이름이 들어갈 변수) in (객체)
+- name > key
+
+- __console.group__ 을 사용하면 결과값을 더 보기 좋게 정리할 수 있습니다. 
 
 ```
 
@@ -1192,7 +1196,6 @@ var memberObject = {
 }
 
 
-// (현재 원소의 이름이 들어갈 변수) in (객체)
 
 
 for(var name in memberObject ){ 
@@ -1210,7 +1213,7 @@ console.groupEnd('object loop');
 
 ```
 
-##  자바스크립트 내장 객체 math
+##  내장 객체 math
 
 - 표준 내장 객체
 - https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects
@@ -1237,11 +1240,13 @@ console.log("Math.floor(3.9)", Math.floor(3.9)); // 값을 반올림합니다.
 ## 객체 생성
 
 
-- 객체 안에 포함된 함수 : method
+- 객체 안에 포함된 함수 'method'
 - 객체를 사용하면 관련된 기능을 그룹화하여 편리하게 사용할 수 있습니다.
 
 
-```python
+- {} MyMath 중괄호 객체 생성
+
+```
 var MyMath = {
     
     PI: Math.PI,
@@ -1257,8 +1262,7 @@ var MyMath = {
 }
 ```
 
-
-```python
+```
 var MyMath_PI = Math.PI;
 
 function MyMath_random(){
@@ -1271,31 +1275,33 @@ function MyMath_floor(val){
 
 ## this
 
-- 어떤 메소드에서 그 메소드가 속해 있는 객체를 가리키는 특수한 키워드
+- _어떤 메소드에서 그 메소드가 속해 있는 객체를 가리키는 특수 키워드_
+- 객체 내부에서 사용 가능
 
-
-```python
+```
 var kim = {
+
     name: 'kim',
-    first: 10, //첫번째 게임 점수
+    first: 10,   //첫번째 게임 점수
     second: 20,  // 두번째 게임 점수 
+    
     sum:function(f,s){ // 게임 접수 합계 함수
         return f+s;
     }
 }
 
-console.log("kim.sum(kim.first,kim.second)",kim.sum(kim.first,kim.second));
-
+console.log( "kim.sum(kim.first, kim.second)", kim.sum(kim.first, kim.second));
 
 ```
 
+```
 
-```python
 var kim = {
     
     name: 'kim',
-    first: 10, //첫번째 게임 점수
-    second: 20,  // 두번째 게임 점수 
+    first:  10,     //첫번째 게임 점수
+    second: 20,     // 두번째 게임 점수 
+    
     sum:function(){ // 게임 접수 합계 함수
         return this.first+this.second;
     }
@@ -1303,5 +1309,226 @@ var kim = {
 
 
 console.log("kim.sum()",kim.sum());
+
+```
+
+
+## constructor의 필요성
+
+- 객체 내부에 코드를 추가하다 보면 프로그래밍 상으로 문제는 없지만 **객체 내부의 내용이 바뀌면 같은 동작을 하는 모든 객체의 내용을 바꿔야한다는 단점**이 있습니다.
+
+## 내장 객체 date
+
+- **new 키워드**를 사용하여 새로운 Date 객체를 생성
+
+
+
+- .getFullYear() method
+- .getMonth() method
+
+```
+//2019년 4월 10일의 값을 가지는 Date 객체를 생성합니다.
+var d1 = new Date('2019-4-10'); 
+
+
+// 해당 객체의 년도를 출력합니다.
+console.log('d1.getFullYear()',d1.getFullYear()); 
+
+
+//0부터 카운트하여 해당 객체의 월을 출력합니다.
+console.log('d1.getMonth()',d1.getMonth()); 
+
+```
+
+- 이처럼 date 객체를 만드는 공장(new)이 있다면 원하는 값을 가지는 객체를 양산해낼 수 있게 됩니다.
+
+## 생성자 (constructor)
+
+
+```
+
+function Person(){
+    this.name = 'kim';
+    this.first = 10;
+    this.second = 20;
+    this.third = 30;
+    this.sum = function(){ 
+        return this.first+this.second+this.third;
+    }
+}
+
+console.log('Person()', Person()); 
+
+```
+
+// result : Person() undefined
+
+- 객체를 생성하는 생성자 **new** 키워드를 사용하여 객체 생성
+
+```
+console.log('new Person()', new Person());`
+```
+
+- new 키워드로 두개의 객체 생성후 객체내 함수 sum() method 호출
+
+```
+var kim = new Person();
+var lee = new Person();
+
+console.log("kim.sum()",kim.sum());
+console.log("lee.sum()",lee.sum());
+```
+
+
+
+## 생성자 parameter
+
+생성자 함수가 실행될 때 입력 값을 받도록
+
+```
+
+function Person(name,first,second,third){
+    this.name = name;
+    this.first = first;
+    this.second = second;
+    this.third = third;
+    this.sum = function(){ 
+        return this.first+this.second+this.third;
+    }
+}
+
+
+var kim = new Person('kim',10,20,30);
+var lee = new Person('lee',10,10,10);
+
+```
+
+## prototype의 필요성
+
+
+
+생성자 함수에서는 새로운 객체가 생성될 때 마다, sum이라는 내부 메소드가 새롭게 생성되고 있습니다. 
+그만큼 메모리 낭비가 발생해 성능이 떨어지게 됩니다.
+
+
+sum 이라는 메소드의 내용을 수정하고 싶은 경우, 만들어진 객체만큼 수정 작업을 반복해야한다는 문제가 있습니다. 즉 생산성이 떨어지게 됩니다.
+
+
+
+- 만약 Person 이라는 생성자를 이용해서 만든 모든 객체가 공통적으로 사용하는 함수를 만들 수 있다면 어떨까요?
+- 공통적으로 사용하는 속성을 만들 수 있다면 어떨까요?
+
+
+
+
+```python
+https://developer.mozilla.org/ko/docs/Learn/JavaScript/Objects/Object_prototypes
+```
+
+prototype을 이용해 객체의 재사용성을 높일 수 있습니다.
+
+
+```
+function Person(name,first,second,third){
+    this.name = name;
+    this.first = first;
+    this.second = second;
+    this.third = third;
+    
+}
+
+```
+
+
+- Person 생성자에 prototype에 sum이라는 함수를 정의
+
+
+```
+Person.prototype.sum = function(){ 
+    return this.first+this.second+this.third;
+}
+
+
+var kim = new Person('kim',10,20,30);
+var lee = new Person('lee',10,10,10);
+console.log("kim.sum()",kim.sum());
+console.log("lee.sum()",lee.sum());
+
+
+```
+
+
+- 생성자 함수 안에 메소드를 정의하는 코드가 들어 있지 않기 때문에, __객체가 생성될 때마다 호출되지 않고 한번만 생성__ 하게 됩니다. 
+
+- 여러개의 객체가 하나의 함수를 공유하므로써 성능을 높이고 메모리를 절약할 수 있습니다.
+
+
+```
+function Person(name,first,second,third){
+    this.name = name;
+    this.first = first;
+    this.second = second;
+    this.third = third;
+    
+}
+
+Person.prototype.sum = function(){ 
+    return 'prototype : ' + (this.first+this.second+this.third);
+}
+```
+
+
+
+- 만약 하나의 객체에서만 sum이라는 함수를 다르게 동작시키고 싶다면 어떻게 해야할까요?
+- kim이라는 객체에 sum 메소드를 추가
+
+
+```
+
+var kim = new Person('kim',10,20,30);
+
+kim.sum = function(){
+    return 'this : ' + (this.first+this.second+this.third);
+}
+
+
+var lee = new Person('lee',10,10,10);
+console.log("kim.sum()",kim.sum());
+console.log("lee.sum()",lee.sum());
+
+```
+
+
+
+- 자바스크립트는 객체에서 어떠한 메소드 또는 속성을 출력할때, 해당 객체가 그 메소드 또는 속성을 가지고 있는지를 확인합니다.
+
+- 만약 가지고 있다면 객체 내의 메소드 또는 속성을 호출하고, 없다면 이 객체의 생성자의 prototype에 해당 메소드 또는 속성이 정의 되어 있는지를 확인합니다. 
+
+
+
+###  생성자를 이용한 객체 생성
+
+- 객체의 속성들 (변수들)은 생성자 함수 안에 넣는 것이 일반적입니다. 
+
+- 객체의 메소드들은 생성자의 prototype에 추가하는 것이 일반적인 패턴입니다. 
+
+```
+function Person(name,first,second,third){
+    this.name = name;
+    this.first = first;
+    this.second = second;
+    this.third = third;
+    
+}
+
+Person.prototype.sum = function(){ 
+    return 'prototype : ' + (this.first+this.second+this.third);
+}
+```
+
+## class
+
+
+```python
 
 ```
