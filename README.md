@@ -131,3 +131,7 @@ tensorflow.js
 ## ~ 2022-03-27
 - 자료구조, 알고리즘 정리
 - 미디어파이프
+
+## 2022-03-28
+
+- (MediaPipe)[https://www.youtube.com/watch?v=06TE_U21FK4]
