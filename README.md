@@ -135,3 +135,8 @@ tensorflow.js
 ## 2022-03-28
 
 - [MediaPipe](https://www.youtube.com/watch?v=06TE_U21FK4)
+
+## 2022-03-29
+
+- 15:00 MediaPipe 회의
+- 16:30 창업동아리 
