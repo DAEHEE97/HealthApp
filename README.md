@@ -140,3 +140,7 @@ tensorflow.js
 
 - 15:00 MediaPipe 회의
 - 16:30 창업동아리 
+
+- Notion
+- Algorithm with python 
+
