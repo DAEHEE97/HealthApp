@@ -144,3 +144,7 @@ tensorflow.js
 - Notion
 - Algorithm with python 
 
+## 2022-04-06
+- Algorithm with python 
+
+- 내일 오전 회의
