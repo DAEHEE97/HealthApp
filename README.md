@@ -148,3 +148,8 @@ tensorflow.js
 - Algorithm with python 
 
 - 내일 오전 회의
+
+## 2022-04-10
+- 그리디
+- 허프만
+- 
